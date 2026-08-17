@@ -34,6 +34,36 @@
     }
   } catch(_){}
 
+  /* ---------- KO→EN translation for DB-sourced text ----------
+   * 사진·문구 DB 를 한국어판과 공유하므로, admin 에서 저장한 한국어 문구가
+   * 그대로 내려온다. 아래 사전으로 렌더 직전에 영어로 치환한다.
+   * 사전에 없는 새 문구는 한국어 그대로 노출됨 → 원본 수정을 미러링할 때
+   * 이 사전에도 번역을 추가할 것. ([[...]] 하이라이트 문법 포함, 완전 일치)
+   */
+  const KO_EN = {
+    // timeline titles
+    '우리의 시작': 'How It Began',
+    '함께한 12년': 'Twelve Years Together',
+    '우리의 약속': 'Our Promise',
+    // timeline captions
+    '고등학교 시절, 친구의 친구로\n인사만 나누던 우리.\n함께 떠난 여행에서\n[[우리의 이야기]]가 시작됐어요.':
+      'In high school, we only knew each other\nas a friend of a friend.\nOn a trip together,\n[[our story]] began.',
+    '긴 시간 동안\n우리는 [[서로의 일상]]이 되었어요.':
+      "Over the long years,\nwe became [[each other's everyday]].",
+    '나란히 걸어온 시간처럼\n앞으로도 [[같은 길]]을 걷기로 했어요.':
+      'Just as we have walked side by side,\nwe chose to keep walking [[the same road]].',
+    '함께하기로 [[약속한 날,]]\n저희 시작의 [[증인]]이 되어주세요.':
+      'On the day we [[promised]] to share,\nplease be the [[witnesses]] of our beginning.',
+    // site-text overrides
+    '필름 한 컷에\n우리의 계절을 담았습니다.':
+      'A single frame of film,\nholding our seasons.',
+  };
+  const T = s => {
+    if(!s) return s;
+    const key = String(s).replace(/\r\n/g,'\n').trim();
+    return KO_EN[key] !== undefined ? KO_EN[key] : s;
+  };
+
   /* ---------- 관리자에서 수정한 문구·디자인 적용 ---------- */
   const THEME_VARMAP = {
     'theme.paper':'--paper-base','theme.ink':'--ink','theme.body':'--body',
@@ -53,7 +83,7 @@
       }
       const el = document.querySelector('[data-text="'+k+'"]');
       if(!el) return;
-      el.innerHTML = esc1(ov[k]).replace(/\n/g, '<br>');
+      el.innerHTML = esc1(T(ov[k])).replace(/\n/g, '<br>');
     });
   }).catch(()=>{});
 
@@ -340,11 +370,11 @@
     const tl=$('#timelineList');
     if(tl && got){
       // 동적 항목은 reveal 클래스 대신 처음부터 .in 으로 표시 (observer 등록 안 되어 있음)
-      tl.innerHTML = tItems.map(p=>`<div class="tl-item reveal in"><div class="tl-print"><div class="print"><div class="frame" style="aspect-ratio:1;"><img src="${p.url}" alt=""></div></div></div><div class="tl-text">${p.step?`<div class="step">${esc2(p.step)}</div>`:''}${p.year_title?`<div class="yr">${esc2(p.year_title)}</div>`:''}${p.caption?`<p>${nl2br(p.caption)}</p>`:''}</div><span class="tl-dot"></span></div>`).join('');
+      tl.innerHTML = tItems.map(p=>`<div class="tl-item reveal in"><div class="tl-print"><div class="print"><div class="frame" style="aspect-ratio:1;"><img src="${p.url}" alt=""></div></div></div><div class="tl-text">${p.step?`<div class="step">${esc2(T(p.step))}</div>`:''}${p.year_title?`<div class="yr">${esc2(T(p.year_title))}</div>`:''}${p.caption?`<p>${nl2br(T(p.caption))}</p>`:''}</div><span class="tl-dot"></span></div>`).join('');
     }
     const ed=$('#endingList');
     if(ed && got){
-      ed.innerHTML = eItems.map(p=>`<div class="print tape"><div class="frame" style="aspect-ratio:1;"><img src="${p.url}" alt=""></div>${p.caption?`<div class="mark">${esc2(p.caption)}</div>`:''}</div>`).join('');
+      ed.innerHTML = eItems.map(p=>`<div class="print tape"><div class="frame" style="aspect-ratio:1;"><img src="${p.url}" alt=""></div>${p.caption?`<div class="mark">${esc2(T(p.caption))}</div>`:''}</div>`).join('');
     }
     // 빈 섹션은 자동으로 숨김 (사용자가 의도적으로 비웠다는 신호)
     if(got){
