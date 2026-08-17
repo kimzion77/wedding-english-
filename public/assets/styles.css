@@ -219,8 +219,10 @@ section{padding:64px var(--pad);}
   animation:breathe 2.4s ease-in-out infinite; transition:opacity .5s ease;
 }
 .cover-seal.opening .seal-hint{opacity:0; animation:none;}
-/* sealed: lock the page until the seal is opened */
-body.sealed{overflow:hidden;}
+/* sealed: lock the page until the seal is opened.
+   iOS Safari / Kakao in-app ignore overflow:hidden for scroll locking,
+   so pin the body with position:fixed (seal is always at page top — no restore needed) */
+body.sealed{overflow:hidden; position:fixed; inset:0; width:100%;}
 
 /* =========================================================
    COVER

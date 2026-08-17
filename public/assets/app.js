@@ -123,6 +123,10 @@
   if(coverSeal){
     document.body.classList.add('sealed');
     coverSeal.addEventListener('click', openSeal);
+    // iOS Safari / Kakao in-app: prevent scroll even where overflow:hidden is ignored
+    document.addEventListener('touchmove', e=>{
+      if(document.body.classList.contains('sealed')) e.preventDefault();
+    }, {passive:false});
   }
 
   /* ---------- BACKGROUND MUSIC ---------- */
