@@ -1,0 +1,55 @@
+import Cover from "@/components/sections/Cover";
+import Greeting from "@/components/sections/Greeting";
+import CoupleIntro from "@/components/sections/CoupleIntro";
+import Gallery from "@/components/sections/Gallery";
+import Timeline from "@/components/sections/Timeline";
+import EventInfo from "@/components/sections/EventInfo";
+import Location from "@/components/sections/Location";
+import Accounts from "@/components/sections/Accounts";
+import Rsvp from "@/components/sections/Rsvp";
+import Guestbook from "@/components/sections/Guestbook";
+import GuestSnap from "@/components/sections/GuestSnap";
+import Share from "@/components/sections/Share";
+import MusicToggle from "@/components/ui/MusicToggle";
+import IntroVeil from "@/components/ui/IntroVeil";
+import { ContentProvider } from "@/components/ContentProvider";
+import { getResolvedSettings } from "@/lib/content";
+import type { SectionId } from "@/config/theme";
+import type { ComponentType } from "react";
+
+// 저장된 설정(콘텐츠/테마/레이아웃)을 매 요청마다 반영
+export const dynamic = "force-dynamic";
+
+const SECTION_COMPONENTS: Record<SectionId, ComponentType> = {
+  greeting: Greeting,
+  couple: CoupleIntro,
+  gallery: Gallery,
+  timeline: Timeline,
+  event: EventInfo,
+  location: Location,
+  accounts: Accounts,
+  rsvp: Rsvp,
+  guestbook: Guestbook,
+  guestsnap: GuestSnap,
+  share: Share,
+};
+
+export default async function Home() {
+  const { content, sections } = await getResolvedSettings();
+
+  return (
+    <ContentProvider value={content}>
+      <div className="mx-auto min-h-screen max-w-[480px] bg-card shadow-sm">
+        <IntroVeil />
+        <MusicToggle />
+        <Cover />
+        {sections
+          .filter((s) => s.visible)
+          .map((s) => {
+            const SectionComp = SECTION_COMPONENTS[s.id];
+            return SectionComp ? <SectionComp key={s.id} /> : null;
+          })}
+      </div>
+    </ContentProvider>
+  );
+}

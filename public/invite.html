@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Woo Seonggyu ♥ Kim Jieun — Wedding Invitation</title>
+<meta name="description" content="Sunday, December 20, 2026, 11:00 AM · Sangnok Art Hall Grand Ballroom, Seoul">
+<!-- OG meta for messenger card sharing -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Woo Seonggyu ♥ Kim Jieun are getting married">
+<meta property="og:description" content="Sunday, December 20, 2026, 11:00 AM · Sangnok Art Hall">
+<meta property="og:image" content="https://wedding1220.com/assets/couple_veil.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="1200">
+<meta property="og:url" content="https://wedding1220.com/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&family=Song+Myung&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <rect width="100" height="100" fill="#e9e1d1"/>
+    <rect x="34" y="22" width="32" height="44" rx="2" fill="#fbf8f1" stroke="#b9a98a"/>
+    <circle cx="50" cy="74" r="7" fill="#9b5a52"/>
+    <text x="50" y="77" font-family="Georgia, serif" font-size="6" fill="#fff" text-anchor="middle">W&amp;J</text>
+  </svg>
+</template>
+
+<main class="letter" id="letter">
+
+  <!-- ===== COVER ===== -->
+  <section class="cover" data-screen-label="cover">
+    <div class="cover-env" aria-hidden="true"></div>
+    <p class="invited reveal">You are warmly invited to</p>
+    <p class="the-wedding reveal">The Wedding of</p>
+    <div class="names reveal">
+      <span class="nm">Seonggyu</span>
+      <span class="amp">&amp;</span>
+      <span class="nm">Jieun</span>
+    </div>
+    <div class="date-line reveal">
+      <div class="dow serif-en" style="text-align:center;letter-spacing:.42em;font-size:13px;color:var(--ink-soft);margin-bottom:14px;">SUNDAY</div>
+      <div class="date-grand">
+        <span class="mo">DEC</span>
+        <span class="dd">20</span>
+        <span class="yr">2026</span>
+      </div>
+      <p class="when">Sunday, December 20, 2026 · 11:00 AM<br><b>Sangnok Art Hall</b> · Gangnam, Seoul</p>
+    </div>
+    <button class="cover-seal" id="coverSeal" aria-label="Open the invitation">
+      <span class="seal-disc"><img class="seal-img" src="assets/wax_real.png" alt=""></span>
+      <span class="seal-hint">Tap the seal to open the invitation</span>
+    </button>
+  </section>
+
+  <!-- ===== GREETING / POEM ===== -->
+  <section class="center" data-screen-label="greeting">
+    <p class="lead reveal muted" data-text="greeting_poem" style="font-size:15.5px;">
+      When two people who find the depth of love<br>
+      in simply calling each other's name<br>
+      walk toward one another like flowers and trees,<br>
+      and after a long, patient wait,<br>
+      promise to become everything to each other —<br>
+      on that day, the world grows more beautiful.
+    </p>
+    <p class="reveal muted" data-text="greeting_credit" style="font-family:var(--serif-en);letter-spacing:.06em;font-size:13.5px;margin-top:22px;">from &ldquo;People of Love&rdquo; by Lee Hae-in</p>
+
+    <hr class="divider reveal">
+
+    <h2 class="sec-title reveal" data-text="greeting_title" style="margin-top:30px;">With joyful hearts,<br>we invite you</h2>
+    <p class="lead reveal" data-text="greeting_body" style="margin-top:24px;">
+      Walking side by side for more than twelve years,<br>we learned to keep pace with each other.<br><br>
+      Through every season still to come,<br>we promise to stay by each other's side.<br><br>
+      On a day in December,<br>we would be honored to have you with us —<br>the people who have always cared for us.
+    </p>
+  </section>
+
+  <!-- ===== FEATURED FILM (VIDEO) ===== -->
+  <section class="film-feature center" data-screen-label="film">
+    <p class="kicker reveal" style="padding-left:0;">Shot on film</p>
+    <div class="reveal">
+      <div class="print tape" id="filmPrint">
+        <div class="frame" style="aspect-ratio:3/4;">
+          <video id="filmVideo" data-slot="film_poster" muted loop playsinline preload="metadata" poster="assets/film_poster.jpg">
+            <source src="assets/film.mp4" type="video/mp4">
+          </video>
+          <button class="play-btn" id="playBtn" aria-label="Play with sound">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <p class="lead film-cap reveal muted" data-text="film_caption" style="font-size:15px;">
+      A single frame of film,<br>holding our seasons.
+    </p>
+  </section>
+
+  <!-- ===== CALENDAR + COUNTDOWN ===== -->
+  <section data-screen-label="calendar">
+    <h2 class="cal-head reveal">The twentieth day<br>of December.</h2>
+    <div class="calendar reveal">
+      <div class="cal-grid" id="calGrid"></div>
+    </div>
+    <div class="countdown reveal">
+      <p class="cd-title">Until Seonggyu <span class="hh">♥</span> Jieun's wedding</p>
+      <div class="cd-row">
+        <div class="cd-cell"><div class="num-c" id="cdD">0</div><div class="lbl">Days</div></div>
+        <div class="cd-cell"><div class="num-c" id="cdH">0</div><div class="lbl">Hours</div></div>
+        <div class="cd-cell"><div class="num-c" id="cdM">0</div><div class="lbl">Min</div></div>
+        <div class="cd-cell"><div class="num-c" id="cdS">0</div><div class="lbl">Sec</div></div>
+      </div>
+      <p class="cd-foot" id="cdFoot"></p>
+    </div>
+  </section>
+
+  <!-- ===== COUPLE INFO ===== -->
+  <section class="center" data-screen-label="couple">
+    <div class="couple reveal">
+      <div class="g-col">
+        <div class="role g">GROOM</div>
+        <div class="pname">Woo Seonggyu</div>
+        <div class="meta">August 26, 1993</div>
+        <div class="parents">Son of <span class="pp">Woo Seokhee &amp; Choi Sukyoung</span></div>
+      </div>
+      <div class="b-col">
+        <div class="role b">BRIDE</div>
+        <div class="pname">Kim Jieun</div>
+        <div class="meta">July 17, 1994</div>
+        <div class="parents">Daughter of <span class="pp">Kim Myeongguk &amp; Ko Youngran</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TIMELINE ===== -->
+  <section data-screen-label="timeline">
+    <div class="center"><p class="kicker reveal">Our Story</p><h2 class="sec-title reveal">Our Time Together</h2></div>
+    <div class="timeline" id="timelineList">
+      <div class="tl-item reveal">
+        <div class="tl-print"><div class="print"><div class="frame" style="aspect-ratio:1;"><img src="assets/thumb_field.jpg" alt=""></div></div></div>
+        <div class="tl-text">
+          <div class="step">First</div>
+          <div class="yr">How We Met</div>
+          <p>We went to the same high school,<br>but it began <mark>awkwardly</mark> —<br>as a friend of a friend.</p>
+        </div>
+        <span class="tl-dot"></span>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-print"><div class="print"><div class="frame" style="aspect-ratio:1;"><img src="assets/thumb_hands.jpg" alt=""></div></div></div>
+        <div class="tl-text">
+          <div class="step">12 Years</div>
+          <div class="yr">Twelve Years Together</div>
+          <p>The warmest seasons of all —<br><mark>getting to know each other.</mark></p>
+        </div>
+        <span class="tl-dot"></span>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-print"><div class="print"><div class="frame" style="aspect-ratio:1;"><img src="assets/thumb_road.jpg" alt=""></div></div></div>
+        <div class="tl-text">
+          <div class="step">Promise</div>
+          <div class="yr">Our Promise</div>
+          <p>We decided to walk<br><mark>the same road together.</mark></p>
+        </div>
+        <span class="tl-dot"></span>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-print"><div class="print"><div class="frame" style="aspect-ratio:1;"><img src="assets/couple_ring.jpg" alt=""></div></div></div>
+        <div class="tl-text">
+          <div class="step">Wedding Day</div>
+          <div class="yr">12. 20.</div>
+          <p>On the day we <mark>promised</mark> to share,<br><span style="letter-spacing:-.01em;">please be the <mark>witnesses</mark> of our beginning.</span></p>
+        </div>
+        <span class="tl-dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section class="gallery center" data-screen-label="gallery">
+    <p class="kicker reveal">Gallery</p>
+    <h2 class="sec-title reveal" style="margin-bottom:14px;">Gallery</h2>
+    <p class="ghint reveal">Tap a photo to view it in full screen</p>
+    <div class="reveal">
+      <div class="ggrid" id="ggrid">
+        <div class="gcell" data-slot-cell="gallery_1"><img data-slot="gallery_1" src="assets/couple_veil.jpg" alt="" loading="lazy" decoding="async"></div>
+        <div class="gcell" data-slot-cell="gallery_2"><img data-slot="gallery_2" src="assets/couple_ring.jpg" alt="" loading="lazy" decoding="async"></div>
+        <div class="gcell" data-slot-cell="gallery_3"><img data-slot="gallery_3" src="assets/filmprint_ring.jpg" alt="" loading="lazy" decoding="async"></div>
+        <div class="gcell" data-slot-cell="gallery_4"><img data-slot="gallery_4" src="assets/thumb_cake.jpg" alt="" loading="lazy" decoding="async"></div>
+        <div class="gcell" data-slot-cell="gallery_5"><img data-slot="gallery_5" src="assets/thumb_hands.jpg" alt="" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="gnav" id="gNav" style="display:none;">
+        <button class="garrowg prev" id="gpPrev" type="button" aria-label="Previous page">
+          <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <span class="gpgcount"><span id="gpNow">1</span> <span class="sep">/</span> <span id="gpTot">1</span></span>
+        <button class="garrowg next" id="gpNext" type="button" aria-label="Next page">
+          <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LOCATION ===== -->
+  <section class="loc center" data-screen-label="location">
+    <p class="kicker reveal">Location</p>
+    <h2 class="sec-title reveal" style="margin-bottom:26px;">Getting Here</h2>
+    <div class="reveal">
+      <p class="venue">Sangnok Art Hall</p>
+      <p class="vsub">(Sangnok Hall)</p>
+      <p class="vaddr">508 Eonju-ro, Gangnam-gu, Seoul</p>
+      <p class="vphone"><a href="tel:+8225645757"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4h3l1.5 5-2 1.5a12 12 0 0 0 5 5l1.5-2 5 1.5V20a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg> +82-2-564-5757</a></p>
+      <div class="mapcard cut">
+        <img class="mapimg" src="assets/map_cut.png" alt="Map to Sangnok Art Hall">
+      </div>
+      <div class="nav-btns">
+        <a href="https://map.naver.com/p/search/상록아트홀" target="_blank" rel="noopener">Naver Map</a>
+        <a href="https://map.kakao.com/?q=상록아트홀" target="_blank" rel="noopener">Kakao Map</a>
+        <a href="https://maps.google.com/?q=Sangnok+Art+Hall+508+Eonju-ro+Gangnam-gu+Seoul" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+      <div class="transit">
+        <div class="row">
+          <span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="6" y="3" width="12" height="15" rx="2.5"/><path d="M6 12h12M9 22l-1.5 2M15 22l1.5 2"/><circle cx="9" cy="15" r="1" fill="currentColor"/><circle cx="15" cy="15" r="1" fill="currentColor"/></svg></span>
+          <span class="tt"><b>Subway · Shuttle Bus</b><span><span class="hl">Seolleung Station (Line 2 · Suin&ndash;Bundang Line), Exit 5</span> — 5 min walk<br>Shuttle bus runs from Exit 5 of Seolleung Station</span></span>
+        </div>
+        <div class="row">
+          <span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="11" rx="2"/><path d="M3 11h18M7 20l-1 2M17 20l1 2"/><circle cx="7" cy="14" r="1" fill="currentColor"/><circle cx="17" cy="14" r="1" fill="currentColor"/></svg></span>
+          <span class="tt"><b>Bus</b><span>KT Gangnam Branch stop — <span class="hl">141 · 242 · 361</span><br>Korea Technology Center · Sangnok Hall stop — <span class="hl">146 · 341 · 360 · 740</span></span></span>
+        </div>
+        <div class="row">
+          <span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 12h18M5 6h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/><circle cx="8" cy="16" r="1" fill="currentColor"/><circle cx="16" cy="16" r="1" fill="currentColor"/></svg></span>
+          <span class="tt"><b>By Car</b><span>Set your navigation to <span class="hl">&ldquo;Seoul Sangnok Hall&rdquo;</span> or<br><span class="hl">&ldquo;508 Eonju-ro, Gangnam-gu, Seoul&rdquo;</span></span></span>
+        </div>
+        <div class="row">
+          <span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <span class="tt"><b>Ceremony</b><span><span class="hl">11:00 AM</span> · Meal tickets will be provided for the reception.</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RSVP ===== -->
+  <section class="center" data-screen-label="rsvp">
+    <p class="kicker reveal">R.S.V.P</p>
+    <h2 class="sec-title reveal" style="margin-bottom:24px;">Will You Join Us?</h2>
+    <p class="section-note reveal" data-text="rsvp_note">
+      Thank you for taking the time<br>to celebrate our wedding day.<br>
+      To help us prepare,<br>please let us know in advance<br>whether you can attend.
+    </p>
+    <button class="btn-solid reveal" id="openRsvp">Send RSVP</button>
+  </section>
+
+  <!-- ===== ACCOUNTS ===== -->
+  <section class="center" data-screen-label="accounts">
+    <p class="kicker reveal">With Heart</p>
+    <h2 class="sec-title reveal" style="margin-bottom:24px;">Wedding Gifts</h2>
+    <p class="section-note reveal" data-text="accounts_note">
+      For those who wish to send<br>their congratulations from afar,<br>we share our account details below.<br>
+      Thank you for your warm hearts.
+    </p>
+    <div class="acc reveal" id="accounts" style="text-align:left;">
+      <button class="acc-head" data-acc="g"><span class="side-g">Groom's Side</span><span class="chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span></button>
+      <div class="acc-body" id="accGroom">
+        <div class="acc-item">
+          <div class="who">
+            <span class="r">Groom</span>
+            <span class="bank" style="display:block;margin:0 0 5px 0;">KB Kookmin Bank</span>
+            <span class="no" style="display:block;margin:0 0 5px 0;font-size:15px;">046802-04-218584</span>
+            <span class="holder" style="display:block;margin:0;font-size:13px;color:var(--ink-soft);letter-spacing:.02em;">Account holder: Woo Seonggyu</span>
+          </div>
+          <div class="acts"><button class="copy-btn" data-copy="046802-04-218584">Copy</button></div>
+        </div>
+      </div>
+      <button class="acc-head" data-acc="b"><span class="side-b">Bride's Side</span><span class="chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span></button>
+      <div class="acc-body" id="accBride">
+        <div class="acc-item bride">
+          <div class="who">
+            <span class="r">Bride</span>
+            <span class="bank" style="display:block;margin:0 0 5px 0;">Shinhan Bank</span>
+            <span class="no" style="display:block;margin:0 0 5px 0;font-size:15px;">110-371-160753</span>
+            <span class="holder" style="display:block;margin:0;font-size:13px;color:var(--ink-soft);letter-spacing:.02em;">Account holder: Kim Jieun</span>
+          </div>
+          <div class="acts"><button class="copy-btn" data-copy="110-371-160753">Copy</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GUESTBOOK ===== -->
+  <section class="center" data-screen-label="guestbook">
+    <p class="kicker reveal">Guestbook</p>
+    <h2 class="sec-title reveal" style="margin-bottom:8px;">Guestbook</h2>
+    <div class="reveal">
+      <div id="gbArea"></div>
+      <div class="gb-btns">
+        <button class="btn-ghost" id="gbAll">View All</button>
+        <button class="btn-ghost" id="gbWrite">Write a Message</button>
+      </div>
+      <div class="together">
+        <p class="tlab">Time we've shared together</p>
+        <p class="tval" id="together">—</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GUEST SNAP ===== -->
+  <section class="center guestsnap" data-screen-label="guestsnap">
+    <p class="kicker reveal">Guest Snap</p>
+    <h2 class="sec-title reveal" style="margin-bottom:18px;">Guest Snap</h2>
+    <p class="section-note reveal">
+      Please capture the moments of our wedding<br>in photos and videos.<br>
+      Leave your name and phone number,<br>and your uploads become <b style="color:var(--ink-strong);font-weight:700;">a photo album</b>.<br><br>
+      One lucky guest who shares a lovely moment<br>will get <b style="color:var(--accent-bride);font-weight:700;">coffee</b> on us! ☕
+    </p>
+    <div class="reveal">
+      <div class="rack-wrap"><div id="bookStack"></div></div>
+      <div class="snap-actions">
+        <button class="btn-solid" id="snapUpload">Upload Photos &amp; Videos</button>
+        <button class="btn-ghost" id="snapViewAll">View Albums</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PHOTOBOOTH ===== -->
+  <section class="photobooth center" data-screen-label="photobooth">
+    <p class="kicker reveal">Photo Booth</p>
+    <h2 class="sec-title reveal" data-text="photobooth_title">Photo Booth Event</h2>
+    <p class="lead reveal muted" data-text="photobooth_intro" style="font-size:15px;">
+      On our wedding day, we are hosting<br>
+      a free photo booth for our guests.<br>
+      Capture a special moment with your loved ones,<br>
+      and take home an instant print.
+    </p>
+  </section>
+
+  <!-- ===== ENDING ===== -->
+  <section class="ending" data-screen-label="ending">
+    <div class="eprint reveal" id="endingList">
+      <div class="print tape"><div class="frame" style="aspect-ratio:1;"><img src="assets/thumb_cake.jpg" alt=""></div><div class="mark">The End · 12.20</div></div>
+    </div>
+    <p class="emsg reveal">
+      Sometimes like old friends,<br>sometimes like we've just met —<br>
+      we hope to love each other, wholly and quietly.<br><br>
+      <span class="muted" style="font-size:14px;">— With love, Seonggyu &amp; Jieun</span>
+    </p>
+    <div class="share-row reveal">
+      <button id="shareKakao"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4C7 4 3 7.2 3 11.1c0 2.5 1.7 4.7 4.2 5.9-.2.6-.7 2.4-.8 2.8 0 0 0 .2.1.2.1.1.2 0 .3 0 .3-.2 3-2 3.5-2.4.5.1 1 .1 1.6.1 5 0 9-3.2 9-7.1S17 4 12 4z"/></svg>KakaoTalk</button>
+      <button id="shareLink"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg>Copy Link</button>
+    </div>
+    <div class="brand reveal">
+      <div class="bm">Seonggyu &amp; Jieun</div>
+      <div class="cp">2026 · MADE WITH LOVE</div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FLOATING -->
+<div class="fab-wrap">
+  <button class="fab" id="musicFab" aria-label="Toggle background music"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg></button>
+  <button class="fab" id="topFab" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg></button>
+  <button class="fab" id="shareFab" aria-label="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></button>
+</div>
+
+<!-- RSVP MODAL -->
+<div class="modal" id="rsvpModal">
+  <div class="modal-card">
+    <button class="x-later" id="rsvpLaterTop" type="button">Maybe later</button>
+    <button class="x" id="rsvpX">&times;</button>
+    <h3>RSVP</h3>
+    <p class="mnote">Letting us know whether you can attend<br>is a great help as we prepare the ceremony.</p>
+    <hr class="mline">
+    <p class="minfo"><span class="ig">Groom</span> Woo Seonggyu · <span class="ib">Bride</span> Kim Jieun<br>Sunday, December 20, 2026 · 11:00 AM<br>Sangnok Art Hall (Sangnok Hall)</p>
+    <div class="field">
+      <label>Whose guest are you?</label>
+      <div class="seg" id="rSide"><button data-v="신랑측" class="on">Groom's side</button><button data-v="신부측">Bride's side</button></div>
+    </div>
+    <div class="field">
+      <label>Attendance</label>
+      <div class="seg" id="rGo"><button data-v="참석" class="on">Attending</button><button data-v="미정">Undecided</button><button data-v="불참">Unable to attend</button></div>
+    </div>
+    <div class="field"><label>Name</label><input id="rName" type="text" placeholder="Please enter your name"></div>
+    <div class="field"><label>Party size (including yourself)</label><input id="rCount" type="number" min="1" value="1"></div>
+    <div class="field">
+      <label>Meal</label>
+      <div class="seg" id="rMeal"><button data-v="예정" class="on">Having the meal</button><button data-v="안함">No meal</button></div>
+    </div>
+    <button class="btn-solid" id="rsvpSubmit">Send</button>
+    <button class="btn-ghost" id="rsvpLater" style="margin-top:10px;width:100%;">Maybe later</button>
+  </div>
+</div>
+
+<!-- GUESTBOOK MODAL -->
+<div class="modal" id="gbModal">
+  <div class="modal-card">
+    <button class="x" id="gbX">&times;</button>
+    <h3>Leave a Message</h3>
+    <p class="mnote">Leave a warm message for the couple,<br>engraved on a frame of film.</p>
+    <div class="field"><label>Name</label><input id="gName" type="text" placeholder="Your name"></div>
+    <div class="field"><label>Message</label><textarea id="gMsg" placeholder="Write a message for the couple"></textarea></div>
+    <button class="btn-solid" id="gbSubmit">Engrave on Film</button>
+  </div>
+</div>
+
+<!-- ALL GUESTBOOK MODAL -->
+<div class="modal" id="gbAllModal">
+  <div class="modal-card">
+    <button class="x" id="gbAllX">&times;</button>
+    <h3>Guestbook</h3>
+    <div id="gbAllList" class="gb-list"></div>
+  </div>
+</div>
+
+<!-- GUEST SNAP — UPLOAD -->
+<div class="modal" id="snapUploadModal">
+  <div class="modal-card">
+    <button class="x" id="suX">&times;</button>
+    <h3>Upload Guest Snaps</h3>
+    <p class="mnote">The <b>name you enter becomes the album name</b>.<br>You can upload both photos and videos.</p>
+    <div class="field"><label>Name (album name)</label><input id="suName" type="text" placeholder="Your name"></div>
+    <div class="field"><label>Phone number</label><input id="suPhone" type="tel" inputmode="tel" placeholder="010-0000-0000"></div>
+    <label class="snap-pick" id="suPick">
+      <input id="suFiles" type="file" accept="image/*,video/*" multiple hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12.5" r="3.2"/><path d="M8 5l1.2-2h5.6L16 5"/></svg>
+      <span id="suPickText">Select photos &amp; videos</span>
+    </label>
+    <details class="consent" id="suConsentBox">
+      <summary>
+        <input type="checkbox" class="cbox" id="suConsent">
+        <span>Consent to collection &amp; use of personal information <b style="color:var(--accent-bride)">(required)</b></span>
+        <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </summary>
+      <div class="cbody">
+        To run the Guest Snap photo event, we collect and use personal information as follows.
+        <table>
+          <tr><th>Collected by</th><td>Groom Woo Seonggyu · Bride Kim Jieun</td></tr>
+          <tr><th>Items collected</th><td>Name, phone number, and the photos/videos you upload</td></tr>
+          <tr><th>Purpose</th><td>Running the photo event, notifying the winner, and sending the prize (coffee gift voucher)</td></tr>
+          <tr><th>Retention period</th><td>Deleted immediately once the purpose is fulfilled (event ends and prize is sent)</td></tr>
+        </table>
+        Your information will not be shared with any third party other than the hosts above. You may decline consent; in that case, participation in the photo event is limited.
+      </div>
+    </details>
+    <button class="btn-solid" id="suSubmit">Create Album</button>
+  </div>
+</div>
+
+<!-- GUEST SNAP — ALBUM (grid) -->
+<div class="modal" id="snapAlbumModal">
+  <div class="modal-card">
+    <button class="x" id="saX">&times;</button>
+    <h3 id="saTitle">Album</h3>
+    <p class="mnote" id="saSub"></p>
+    <div id="saGrid"></div>
+  </div>
+</div>
+
+<!-- GUEST SNAP — ALL ALBUMS (list) -->
+<div class="modal" id="snapListModal">
+  <div class="modal-card">
+    <button class="x" id="slX">&times;</button>
+    <h3>Our Moments</h3>
+    <p class="mnote" id="slSub">Albums left by our guests.</p>
+    <div id="slList"></div>
+  </div>
+</div>
+
+<!-- GUEST SNAP — PHOTO LIGHTBOX -->
+<div class="modal" id="snapLightbox">
+  <div class="lb-inner">
+    <button class="x" id="lbX">&times;</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+    <div class="lb-media" id="lbMedia"></div>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Next">›</button>
+    <div class="lb-cap" id="lbCap"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<audio id="bgm" src="audio/Everything.mp3" loop preload="auto"></audio>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
