@@ -749,6 +749,13 @@
   // lightbox with submitter info + swipe navigation
   const lightbox=$('#snapLightbox'), lbMedia=$('#lbMedia'), lbCap=$('#lbCap');
   let _lbIndex=0;
+  const _lbPreloaded = new Set();
+  function preloadLb(i){
+    const m = _lbSet[(i+_lbSet.length)%_lbSet.length];
+    if(!m || m.isV || _lbPreloaded.has(m.src)) return;
+    _lbPreloaded.add(m.src);
+    const im = new Image(); im.src = m.src;
+  }
   function showLb(i){
     if(!_lbSet.length) return;
     _lbIndex=(i+_lbSet.length)%_lbSet.length;
@@ -757,6 +764,8 @@
     const who = m.name ? `Shared by <b>${esc(m.name)}</b>` : '';
     const dt = m.at ? `<span class="lb-dt">${fmtDate(m.at)}</span>` : '';
     lbCap.innerHTML = who + dt + `<span class="lb-idx">${_lbIndex+1} / ${_lbSet.length}</span>`;
+    // Preload neighbors so swiping to unseen photos shows them instantly
+    preloadLb(_lbIndex+1); preloadLb(_lbIndex+2); preloadLb(_lbIndex-1);
   }
   function openLightbox(m){
     if(!m||!lightbox) return;
