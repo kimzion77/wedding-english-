@@ -47,13 +47,13 @@
     '우리의 약속': 'Our Promise',
     // timeline captions
     '고등학교 시절, 친구의 친구로\n인사만 나누던 우리.\n함께 떠난 여행에서\n[[우리의 이야기]]가 시작됐어요.':
-      'In high school, we only knew each other\nas a friend of a friend.\nOn a trip together,\n[[our story]] began.',
+      'In high school, we only knew each other\nthrough mutual friends.\nOn a trip together,\n[[our story]] began.',
     '긴 시간 동안\n우리는 [[서로의 일상]]이 되었어요.':
-      "Over the long years,\nwe became [[each other's everyday]].",
+      'Through the years,\nbeing together became [[our everyday]].',
     '나란히 걸어온 시간처럼\n앞으로도 [[같은 길]]을 걷기로 했어요.':
-      'Just as we have walked side by side,\nwe chose to keep walking [[the same road]].',
+      'After all these years side by side,\nwe choose to keep walking [[the same path]].',
     '함께하기로 [[약속한 날,]]\n저희 시작의 [[증인]]이 되어주세요.':
-      'On the day we [[promised]] to share,\nplease be the [[witnesses]] of our beginning.',
+      'On the day we [[promise]] to share our lives,\nplease [[witness]] our new beginning.',
     // site-text overrides
     '필름 한 컷에\n우리의 계절을 담았습니다.':
       'A single frame of film,\nholding our seasons.',
