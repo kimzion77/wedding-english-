@@ -944,7 +944,8 @@
     if(coverSeal) coverSeal.style.display='none';
     window.__rsvpIntro=()=>{};              // skip the auto RSVP popup (wedding-day QR use)
     const go=()=>target.scrollIntoView({behavior:'auto', block:'start'});
-    setTimeout(go, 250);
-    setTimeout(go, 1200);                   // re-anchor after images above finish loading
+    // Re-anchor repeatedly while photos above load and shift the layout
+    [100,400,900,1600,2600].forEach(ms=>setTimeout(go, ms));
+    window.addEventListener('load', ()=>setTimeout(go, 200), {once:true});
   })();
 })();
