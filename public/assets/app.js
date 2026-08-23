@@ -932,4 +932,19 @@
   const topFab=$('#topFab');
   window.addEventListener('scroll',()=>{ topFab.classList.toggle('show', window.scrollY>600); },{passive:true});
   topFab.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+  /* ---------- Deep link — e.g. #guestsnap via QR jumps straight to that section ---------- */
+  (function deepLink(){
+    const id=(location.hash||'').replace('#','');
+    if(!id) return;
+    const target=document.querySelector('[data-screen-label="'+id+'"]');
+    if(!target) return;
+    sealOpened=true;                        // skip the seal intro
+    document.body.classList.remove('sealed');
+    if(coverSeal) coverSeal.style.display='none';
+    window.__rsvpIntro=()=>{};              // skip the auto RSVP popup (wedding-day QR use)
+    const go=()=>target.scrollIntoView({behavior:'auto', block:'start'});
+    setTimeout(go, 250);
+    setTimeout(go, 1200);                   // re-anchor after images above finish loading
+  })();
 })();
