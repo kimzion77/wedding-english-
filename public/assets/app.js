@@ -57,6 +57,16 @@
     // site-text overrides
     '필름 한 컷에\n우리의 계절을 담았습니다.':
       'A single frame of film,\nholding our seasons.',
+    // account roles & banks (DB 관리 계좌 — 예금주 실명은 송금 확인용으로 한글 유지)
+    '신랑': 'Groom',
+    '신부': 'Bride',
+    '신랑 아버지': 'Father of the Groom',
+    '신랑 어머니': 'Mother of the Groom',
+    '신부 아버지': 'Father of the Bride',
+    '신부 어머니': 'Mother of the Bride',
+    '국민은행': 'KB Kookmin Bank',
+    '우리은행': 'Woori Bank',
+    '신한은행': 'Shinhan Bank',
   };
   const T = s => {
     if(!s) return s;
@@ -119,12 +129,19 @@
   }
   window.__openCover = openSeal;
   if(coverSeal){
-    document.body.classList.add('sealed');
+    // Scroll-to-enter: the page scrolls freely from the start; the first real user
+    // scroll (wheel, touch, or moving past 30px) triggers the opening effect
+    // (seal fade + music). Fake load-time scroll events are ignored. Tapping works too.
     coverSeal.addEventListener('click', openSeal);
-    // iOS Safari / Kakao in-app: prevent scroll even where overflow:hidden is ignored
-    document.addEventListener('touchmove', e=>{
-      if(document.body.classList.contains('sealed')) e.preventDefault();
-    }, {passive:false});
+    const enterByScroll = ()=>{
+      if(sealOpened) return;
+      openSeal();
+      window.removeEventListener('scroll', onScroll);
+    };
+    const onScroll = ()=>{ if(window.scrollY > 30) enterByScroll(); };
+    window.addEventListener('wheel', enterByScroll, {passive:true, once:true});
+    window.addEventListener('touchmove', enterByScroll, {passive:true, once:true});
+    window.addEventListener('scroll', onScroll, {passive:true});
   }
 
   /* ---------- BACKGROUND MUSIC ---------- */
@@ -423,8 +440,8 @@
       const copyBlock = num ? `<button class="copy-btn" data-copy="${esc2(num)}">Copy</button>` : '';
       return `<div class="acc-item${brideSide?' bride':''}">
         <div class="who">
-          <span class="r">${esc2(a.role)}</span>
-          ${bank?`<span class="bank" style="${blk}">${esc2(bank)}</span>`:''}
+          <span class="r">${esc2(T(a.role))}</span>
+          ${bank?`<span class="bank" style="${blk}">${esc2(T(bank))}</span>`:''}
           ${num?`<span class="no" style="${blk}font-size:15px;">${esc2(num)}</span>`:''}
           ${holder?`<span class="holder" style="display:block;margin:0;font-size:13px;color:var(--ink-soft);letter-spacing:.02em;">Account holder: ${esc2(holder)}</span>`:''}
           ${telBlock}
