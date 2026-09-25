@@ -116,8 +116,6 @@
     }
     document.body.classList.remove('sealed');
     startMusic(); // 첫 사용자 동작(도장 탭)에서 배경음악 시작
-    // greet guests with the RSVP popup once they step inside
-    setTimeout(()=>{ if(window.__rsvpIntro) window.__rsvpIntro(); }, 1400);
   }
   window.__openCover = openSeal;
   if(coverSeal){
@@ -493,11 +491,6 @@
       if(window.__toast) window.__toast('You can RSVP anytime from the R.S.V.P section below');
     });
   }
-  // auto-popup when guests enter (after the seal opens); skip only if they've already responded
-  window.__rsvpIntro = ()=>{
-    if(localStorage.getItem('rsvp_done')) return;
-    openModal(rsvpModal);
-  };
   // segmented controls
   $$('.seg').forEach(seg=>{
     seg.addEventListener('click',e=>{
@@ -942,7 +935,6 @@
     sealOpened=true;                        // skip the seal intro
     document.body.classList.remove('sealed');
     if(coverSeal) coverSeal.style.display='none';
-    window.__rsvpIntro=()=>{};              // skip the auto RSVP popup (wedding-day QR use)
     const go=()=>target.scrollIntoView({behavior:'auto', block:'start'});
     // Re-anchor repeatedly while photos above load and shift the layout
     [100,400,900,1600,2600].forEach(ms=>setTimeout(go, ms));
